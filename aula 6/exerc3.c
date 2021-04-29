@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-int withdraw_repetition(float vetor[], int n) {
+void withdraw_repetition(float vetor[], int *n) {
     int i, j;
     bool copy = 1;
-    float vetor2[n];
+    float vetor2[*n];
 
-    for(i = 0;i < n;i++) {
-        for(j = 0;j < n;j++) {
+    for(i = 0;i < *n;i++) {
+        for(j = 0;j < *n;j++) {
             if(vetor[i] == vetor2[j]) {
                 copy = 0;
             }
@@ -20,7 +20,7 @@ int withdraw_repetition(float vetor[], int n) {
         copy = 1;
     }
 
-    for(i = 0;i < n;i++) {
+    for(i = 0;i < *n;i++) {
         if(vetor2[i] != -99999999) {
             printf("%.2f ", vetor2[i]);
         }
@@ -38,7 +38,7 @@ int main() {
         printf("Numero decimal: ");
         scanf("%f", &vetor[i]);
     }
-    withdraw_repetition(vetor, n);
+    withdraw_repetition(vetor, &n);
 
     return 0;
 }
